@@ -1,7 +1,8 @@
 const express = require("express");
 const methodOverride = require("method-override")
 const { engine } = require('express-handlebars');
-const { handleError } = require('./utils/error/error')
+const { handleError } = require('./utils/error/error');
+const { homeRouter } = require("./routers/home/home");
 
 const app = express();
 
@@ -18,8 +19,10 @@ app.engine('.hbs', engine({
 }));
 app.set('view engine', '.hbs');
 
-app.get('/', (req, res) => {
-    res.send('<h1>HELLO WORLD</h1>')
+app.get('/', homeRouter)
+
+app.get('/children', (req, res) => {
+    res.render('children/list');
 })
 
 app.use(handleError);
