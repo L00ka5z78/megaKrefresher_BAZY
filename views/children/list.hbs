@@ -6,6 +6,9 @@
         {{this.name}}
         <select>
           <option value=''>Empty</option>
+          {{#each ../giftsList}}
+            <option value='{{this.name}}'>{{this.name}}</option>
+          {{/each}}
         </select>
       </label>
       <button>Save</button>
