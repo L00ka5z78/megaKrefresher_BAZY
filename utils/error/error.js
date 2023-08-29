@@ -8,5 +8,14 @@ const handleError = (err, req, res, next) => {
     //     });
     //     return;
     // }
+    console.error(err);
 
+    res.status(err instanceof ValidationError ? 400 : 500)
+        .render('error', {
+            message: err instanceof ValidationError ? err.message : "We're sorry, try again later",
+        })
+}
+module.exports = {
+    handleError,
+    ValidationError
 }

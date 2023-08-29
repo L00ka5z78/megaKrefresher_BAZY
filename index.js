@@ -1,6 +1,7 @@
 const express = require("express");
 const methodOverride = require("method-override")
-const hbs = require('express-handlebars');
+const { engine } = require('express-handlebars');
+const { handleError } = require('./utils/error/error')
 
 const app = express();
 
@@ -11,7 +12,7 @@ app.use(express.urlencoded({
 app.use(express.static('public'));
 // app.use(express.json())
 
-app.engine('.hbs', hbs({
+app.engine('.hbs', engine({
     extname: '.hbs',
     // helpers: handlebarsHelpers,  
 }));
