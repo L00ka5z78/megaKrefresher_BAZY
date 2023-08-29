@@ -1,10 +1,10 @@
 const { Router } = require("express");
-
-const homeRouter = express.Router();
+// const express = require('express')
+const homeRouter = Router();
 
 homeRouter
     .get('/', (req, res) => {
-        res.redirect('/children')
+        res.redirect('/child')
     })
 
 module.exports = {
