@@ -1,1 +1,21 @@
 <h2>Children LIST</h2>
+<ul>
+  {{#each childrenList}}
+    <li>
+      {{this.name}}
+      <select>
+        <option value=''>Empty</option>
+      </select>
+      <button>Save</button>
+    </li>
+  {{/each}}
+</ul>
+<h2>Add child to Santa's list</h2>
+<form action=''>
+  <label>
+    Name:
+    <input type='text' />
+  </label>
+  <button>Add</button>
+
+</form>
