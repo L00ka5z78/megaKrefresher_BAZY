@@ -35,7 +35,18 @@ class ChildRecord {
         const [results] = await pool.execute("SELECT * FROM `children` WHERE `id` = :id", {
             id,
         });
-        return results.length === 0 ? null : results[0];
+        return results.length === 0 ? null : new ChildRecord(results[0]);
+    }
+
+    async update() {
+        console.log('this giftid', this.giftId)
+        await pool.execute("UPDATE `children` SET `name` = :name, `desc` = :desc, giftId = :giftId WHERE `id` = :id", {
+            id: this.id,
+            name: this.name,
+            desc: this.desc,
+            giftId: this.giftId
+        });
+
     }
 }
 module.exports = {

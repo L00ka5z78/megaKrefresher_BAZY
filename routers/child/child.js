@@ -30,6 +30,12 @@ childRouter
         }
         // console.log(child)
         const gift = req.body.giftId === '' ? null : await GiftRecord.getOne(req.body.giftId)
+
+        child.giftId = gift?.id ?? null;
+        await child.update();
+
+        res.redirect('/child')
+
     })
 
 module.exports = {
