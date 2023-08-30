@@ -30,6 +30,13 @@ class ChildRecord {
         const [results] = await pool.execute("SELECT * FROM `children` ORDER BY `name` ASC");
         return results
     }
+
+    static async getOne(id) {
+        const [results] = await pool.execute("SELECT * FROM `children` WHERE `id` = :id", {
+            id,
+        });
+        return results.length === 0 ? null : results[0];
+    }
 }
 module.exports = {
     ChildRecord

@@ -21,6 +21,14 @@ childRouter
         res.redirect('/child')
     })
 
+    .patch('/gift/:childId', async (req, res) => {
+
+        const newChild = new ChildRecord(req.body);
+        await newChild.insert();
+
+        res.redirect('/child')
+    })
+
 module.exports = {
     childRouter
 }
