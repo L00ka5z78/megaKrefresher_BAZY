@@ -14,16 +14,18 @@ class GiftRecord {
         this.id = obj.id;
         this.name = obj.name;
         this.count = obj.count;
+        this.desc = obj.desc;
     }
 
     async insert() {
         if (!this.id) {
             this.id = uuid()
         }
-        await pool.execute("INSERT INTO `gifts` VALUES(:id, :name, :count)", {
+        await pool.execute("INSERT INTO `gifts` VALUES(:id, :name, :count, :desc)", {
             id: this.id,
             name: this.name,
             count: this.count,
+            desc: this.desc,
         });
         return this.id;
     }
