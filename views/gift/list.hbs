@@ -5,12 +5,13 @@
       {{this.name}}
       ({{this.count}}
       pcs.)
+      {{this.desc}}
     </li>
   {{/each}}
 </ul>
 
 <h2>Add gift to the list</h2>
-<form action=''>
+<form action='/gift' method='POST'>
   <label>
     Name:
     <input name='name' type='text' />
@@ -19,7 +20,10 @@
     Count [pcs.]
     <input name='count' type='number' />
   </label>
-
+  <label>
+    Description
+    <input name='desc' type='text' />
+  </label>
   <button>Add</button>
 
 </form>
