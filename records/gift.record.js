@@ -5,7 +5,7 @@ const { v4: uuid } = require('uuid')
 class GiftRecord {
     constructor(obj) {
         if (!obj.name || obj.name.length < 3 || obj.name.length > 55) {
-            throw new ValidationError('Name has to be between 3 - 55 characters')
+            throw new ValidationError('Gifts name has to be between 3 - 55 characters')
         }
 
         if (!obj.count || obj.count < 1 || obj.count > 99999) {
