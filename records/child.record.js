@@ -1,27 +1,11 @@
+const { pool } = require("../utils/db");
+const { ValidationError } = require("../utils/error/error");
+const { v4: uuid } = require('uuid')
+
 class ChildRecord {
-    static listAll() {
-        return [
-            {
-                id: 'efdg',
-                name: 'Anne',
-                gift: 'Doll hous'
-            },
-            {
-                id: 'abcd',
-                name: 'Harry',
-                gift: 'Car'
-            },
-            {
-                id: 'qazx',
-                name: 'Pete',
-                gift: 'Knife'
-            },
-            {
-                id: 'ytre',
-                name: 'Zed',
-                gift: 'Battle axe'
-            },
-        ];
+    static async listAll() {
+        const [results] = await pool.execute("SELECT * FROM `children`ORDER BY `name` ASC");
+        return results
     }
 }
 module.exports = {
