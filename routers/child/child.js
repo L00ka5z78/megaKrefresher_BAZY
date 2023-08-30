@@ -30,6 +30,9 @@ childRouter
         }
         // console.log(child)
         const gift = req.body.giftId === '' ? null : await GiftRecord.getOne(req.body.giftId)
+        if (gift) {
+            console.log(gift.count)
+        }
 
         child.giftId = gift?.id ?? null;
         await child.update();

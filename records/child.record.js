@@ -28,7 +28,7 @@ class ChildRecord {
 
     static async listAll() {
         const [results] = await pool.execute("SELECT * FROM `children` ORDER BY `name` ASC");
-        return results
+        return results.map(obj => new ChildRecord(obj))
     }
 
     static async getOne(id) {
