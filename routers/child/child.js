@@ -28,10 +28,12 @@ childRouter
         if (child === null) {
             throw new ValidationError('Child with given ID not found...')
         }
-        // console.log(child)
+
         const gift = req.body.giftId === '' ? null : await GiftRecord.getOne(req.body.giftId)
         if (gift) {
-            console.log(gift.count)
+            if (gift.count <= await gift.countGivenGifts()) {
+                throw new ValidationError('Not enough of this gift..')
+            }
         }
 
         child.giftId = gift?.id ?? null;

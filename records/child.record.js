@@ -12,6 +12,7 @@ class ChildRecord {
         this.id = obj.id;
         this.name = obj.name;
         this.desc = obj.desc;
+        this.giftId = obj.giftId;
     }
 
     async insert() {
@@ -39,7 +40,7 @@ class ChildRecord {
     }
 
     async update() {
-        console.log('this giftid', this.giftId)
+
         await pool.execute("UPDATE `children` SET `name` = :name, `desc` = :desc, giftId = :giftId WHERE `id` = :id", {
             id: this.id,
             name: this.name,
