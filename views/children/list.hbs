@@ -1,8 +1,7 @@
-<h2>Children LIST</h2>
+<h2>Children List</h2>
 <ul>
   {{#each childrenList}}
-    <li>
-
+    <div>
       <form action="/child/gift/{{this.id}}?_method=PATCH" method="POST">
       <label>
         {{this.name}}
@@ -15,21 +14,20 @@
       </label>
       <button>Save</button>
        {{this.desc}}
-</form>
-  
-    </li>
+    </form>  
+    </div>
   {{/each}}
 </ul>
 <h2>Add child to Santa's list</h2>
-<form action='/child' method="POST">
+<form class="form" action='/child' method="POST">
   <label>
-    Name:
+    Name: 
     <input name='name' type='text' />
   </label>
     <label>
-    Description:
+    Description: 
     <input name='desc' type='text' />
   </label>
-  <button>Add</button>
+  <button class="btn">Add</button>
 
 </form>
