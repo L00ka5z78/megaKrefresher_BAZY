@@ -28,6 +28,15 @@ input {
   min-height: 80vh;
 }
 
+form {
+  border: 2px solid #ddd;
+  border-radius: 0.5em;
+  width: 300px;
+  text-align: center;
+  padding: 20px;
+  margin: 30px auto 0;
+}
+
 .error {
   background: #f12121;
   border: 3px solid darkred;
